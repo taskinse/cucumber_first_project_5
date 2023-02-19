@@ -24,8 +24,11 @@ public class TechGlobalBasePage {
     @FindBy(css = "#dropdown-menu a")
     public List<WebElement> headerDropdownOptions;
 
+    @FindBy(id = "main_heading")
+    public WebElement mainHeader;
+
     @FindBy(id = "sub_heading")
-    public WebElement header;
+    public WebElement subHeader;
 
     @FindBy(id = "content")
     public WebElement paragraph;

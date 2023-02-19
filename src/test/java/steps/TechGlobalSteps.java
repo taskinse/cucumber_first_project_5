@@ -6,11 +6,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.TechGlobalBasePage;
 import pages.TechGlobalFrontendTestingHomePage;
 import utils.Driver;
 
 public class TechGlobalSteps {
     WebDriver driver;
+
+    TechGlobalBasePage techGlobalBasePage;
     TechGlobalFrontendTestingHomePage techGlobalFrontendTestingHomePage;
 
 
@@ -20,14 +23,14 @@ public class TechGlobalSteps {
         techGlobalFrontendTestingHomePage = new TechGlobalFrontendTestingHomePage();
     }
 
-    @When("user moves to “Practices” header dropdown")
+    @When("user moves to "Practices" header dropdown")
     public void userMovesToPracticesHeaderDropdown() {
         techGlobalFrontendTestingHomePage.headerDropdown.click();
     }
 
-    @When("user clicks on “Frontend Testing” header dropdown option")
+    @When("user clicks on "Frontend Testing" header dropdown option")
     public void userClicksOnFrontendTestingHeaderDropdownOption() {
-        techGlobalFrontendTestingHomePage.headerDropdownOptions.get(19).click();
+        techGlobalFrontendTestingHomePage.headerDropdownOptions.get(0).click();
     }
 
     @Then("user should be navigated to {string}")
@@ -35,27 +38,28 @@ public class TechGlobalSteps {
         Assert.assertEquals(driver.getCurrentUrl(), "https://techglobal-training.netlify.app/frontend");
     }
 
-    @Then("user clicks on “Pagination” card")
+    @Then("user clicks on "Pagination" card")
     public void user_clicks_on_Pagination_card() {
+        techGlobalFrontendTestingHomePage.headerDropdownOptions.get(19).click();
     }
 
-    @Then("user should be navigated to “https:\\/\\/techglobal-training.netlify.app\\/frontend\\/pagination”")
+    @Then("user should be navigated to "https:\\/\\/techglobal-training.netlify.app\\/frontend\\/pagination"")
     public void user_should_be_navigated_to_https_techglobal_training_netlify_app_frontend_pagination() {
+
     }
 
-    @Then("user should see “Pagination” heading")
+    @Then("user should see "Pagination" heading")
     public void user_should_see_Pagination_heading() {
+        Assert.assertTrue(techGlobalBasePage.mainHeader.isDisplayed());
     }
 
-    @Then("user should see “World City Populations {int}” heading")
+    @Then("user should see "World City Populations {int}" heading")
     public void user_should_see_World_City_Populations_heading(Integer int1) {
-
+        Assert.assertTrue(techGlobalBasePage.subHeader.isDisplayed());
     }
 
-    @Then("user should see “What are the most populated cities in the world? Here is a list of the top five most populated cities in the world:” paragraph")
+    @Then("user should see “What are the most populated cities in the world? Here is a list of the top five most populated cities in the world:" paragraph")
     public void user_should_see_What_are_the_most_populated_cities_in_the_world_Here_is_a_list_of_the_top_five_most_populated_cities_in_the_world_paragraph() {
-
+        Assert.assertTrue(techGlobalBasePage.paragraph.isDisplayed());
     }
-
-
 }
